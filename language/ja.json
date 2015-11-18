@@ -1,0 +1,37 @@
+{
+  "language": "japanese",
+  "string": {
+    "menu": {
+      "general": {
+        "dialog": {
+          "openERD": "ERDディレクトリを開く"
+        }
+      },
+      "app": {
+        "label": "ERtron",
+        "submenu": {
+          "quit": "終了する"
+        }
+      },
+      "file": {
+        "label": "ファイル",
+        "submenu": {
+          "new": "新規ファイル",
+          "open": "開く",
+          "openRecent": "最近開いたファイル",
+          "save": "保存する",
+          "saveAs": "別名で保存する",
+          "close": "現在のファイルを閉じる"
+        }
+      },
+      "view": {
+        "label": "表示",
+        "submenu": {
+          "reload": "再読み込み",
+          "toggleFullScreen": "フルスクリーン",
+          "toggleDeveloperTools": "デベロッパーツール"
+        }
+      }
+    }
+  }
+}

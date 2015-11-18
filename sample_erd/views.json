@@ -1,0 +1,42 @@
+[
+  {
+    "name": "member",
+    "position": {
+      "x": 100,
+      "y": 100
+    },
+    "color": "myColor"
+  },
+  {
+    "name": "tweet",
+    "position": {
+      "x": 200,
+      "y": 200
+    },
+    "color": "myColor"
+  },
+  {
+    "name": "tweetValue",
+    "position": {
+      "x": 300,
+      "y": 300
+    },
+    "color": "myColor"
+  },
+  {
+    "name": "tweetValue",
+    "position": {
+      "x": 400,
+      "y": 400
+    },
+    "color": "myColor"
+  },
+  {
+    "name": "shareContents",
+    "position": {
+      "x": 500,
+      "y": 500
+    },
+    "color": "myColor"
+  }
+]

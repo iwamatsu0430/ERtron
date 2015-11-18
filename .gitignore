@@ -1,0 +1,7 @@
+*.log
+
+bower_components
+node_modules
+
+src/sass/*.css
+src/sass/**/*.css

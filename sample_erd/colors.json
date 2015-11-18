@@ -1,0 +1,26 @@
+[
+  {
+    "name": "myColor",
+    "text": {
+      "header": "#FFFFFF",
+      "body": "#999999"
+    },
+    "background": {
+      "header": "#0AA2E4",
+      "body": "#FFFFFF"
+    },
+    "border": "#0AA2E4"
+  },
+  {
+    "name": "myColor2",
+    "text": {
+      "header": "#FFFFFF",
+      "body": "#999999"
+    },
+    "background": {
+      "header": "#0AA2E4",
+      "body": "#FFFFFF"
+    },
+    "border": "#0AA2E4"
+  }
+]

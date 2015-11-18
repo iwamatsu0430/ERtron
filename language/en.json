@@ -1,0 +1,37 @@
+{
+  "language": "english",
+  "string": {
+    "general": {
+      "dialog": {
+        "openERD": "Open ERD Directory"
+      }
+    },
+    "menu": {
+      "app": {
+        "label": "ERtron",
+        "submenu": {
+          "quit": "Quit"
+        }
+      },
+      "file": {
+        "label": "File",
+        "submenu": {
+          "new": "New File",
+          "open": "Open",
+          "openRecent": "Open recent",
+          "save": "Save",
+          "saveAs": "Save as",
+          "close": "Close"
+        }
+      },
+      "view": {
+        "label": "View",
+        "submenu": {
+          "reload": "Reload",
+          "toggleFullScreen": "Toggle Full Screen",
+          "toggleDeveloperTools": "Toggle Developer Tools"
+        }
+      }
+    }
+  }
+}

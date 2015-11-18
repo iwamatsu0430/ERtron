@@ -1,0 +1,23 @@
+{
+  "name": "ertron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "run-sequence": "^1.1.4",
+    "gulp-typescript": "^2.9.2",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.1.0",
+    "typescript": "^1.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ERtool"
+  ],
+  "author": "iwamatsu0430",
+  "license": "ISC"
+}

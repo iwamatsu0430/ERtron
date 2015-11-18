@@ -1,0 +1,26 @@
+{
+  "name": "ertron",
+  "description": "",
+  "main": "main.js",
+  "authors": [
+    "iwamatsu0430"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "ERtool"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.4.0",
+    "normalize-css": "normalize.css#~3.0.3",
+    "riot-ts": "~0.0.17"
+  }
+}

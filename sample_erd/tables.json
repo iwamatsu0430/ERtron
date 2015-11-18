@@ -1,0 +1,141 @@
+[
+  {
+    "name": {
+      "logical": "メンバー",
+      "physical": "member"
+    },
+    "columns": [
+      {
+        "name": {
+          "logical": "メンバーID",
+          "physical": "_id"
+        },
+        "type": "varchar",
+        "primary": true
+      },
+      {
+        "name": {
+          "logical": "メールアドレス",
+          "physical": "mail"
+        },
+        "type": "varchar"
+      },
+      {
+        "name": {
+          "logical": "パスワード",
+          "physical": "password"
+        },
+        "type": "varchar"
+      },
+      {
+        "name": {
+          "logical": "確認済フラグ",
+          "physical": "confirmed"
+        },
+        "type": "boolean"
+      }
+    ]
+  },
+  {
+    "name": {
+      "logical": "ツイート",
+      "physical": "tweet"
+    },
+    "columns": [
+      {
+        "name": {
+          "logical": "ツイートID",
+          "physical": "_id"
+        }
+      },
+      {
+        "name": {
+          "logical": "メンバーID",
+          "physical": "memberId"
+        }
+      },
+      {
+        "name": {
+          "logical": "シェアコンテンツID",
+          "physical": "shareContentsId"
+        }
+      },
+      {
+        "name": {
+          "logical": "コメント",
+          "physical": "comment"
+        }
+      },
+      {
+        "name": {
+          "logical": "削除済みフラグ",
+          "physical": "deleted"
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "logical": "ツイート評価",
+      "physical": "tweetValue"
+    },
+    "columns": [
+      {
+        "name": {
+          "logical": "評価者メンバーID",
+          "physical": "valueFromMemberId"
+        }
+      },
+      {
+        "name": {
+          "logical": "評価対象者メンバーID",
+          "physical": "valueToMemberId"
+        }
+      },
+      {
+        "name": {
+          "logical": "評価対象ツイートID",
+          "physical": "valueToTweetId"
+        }
+      },
+      {
+        "name": {
+          "logical": "評価スコア",
+          "physical": "valueScore"
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "logical": "シェアコンテンツ",
+      "physical": "shareContents"
+    },
+    "columns": [
+      {
+        "name": {
+          "logical": "シェアコンテンツID",
+          "physical": "_id"
+        }
+      },
+      {
+        "name": {
+          "logical": "URL",
+          "physical": "url"
+        }
+      },
+      {
+        "name": {
+          "logical": "サムネイル画像URL",
+          "physical": "thumbnailUrl"
+        }
+      },
+      {
+        "name": {
+          "logical": "コンテンツタイトル",
+          "physical": "title"
+        }
+      }
+    ]
+  }
+]
