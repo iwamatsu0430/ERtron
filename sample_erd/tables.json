@@ -10,7 +10,7 @@
           "logical": "メンバーID",
           "physical": "_id"
         },
-        "type": "varchar",
+        "type": "BIGINT",
         "primary": true
       },
       {
@@ -18,21 +18,21 @@
           "logical": "メールアドレス",
           "physical": "mail"
         },
-        "type": "varchar"
+        "type": "VARCHAR"
       },
       {
         "name": {
           "logical": "パスワード",
           "physical": "password"
         },
-        "type": "varchar"
+        "type": "VARCHAR"
       },
       {
         "name": {
           "logical": "確認済フラグ",
           "physical": "confirmed"
         },
-        "type": "boolean"
+        "type": "BOOLEAN"
       }
     ]
   },
@@ -46,31 +46,36 @@
         "name": {
           "logical": "ツイートID",
           "physical": "_id"
-        }
+        },
+        "type": "BIGINT"
       },
       {
         "name": {
           "logical": "メンバーID",
           "physical": "memberId"
-        }
+        },
+        "type": "BIGINT"
       },
       {
         "name": {
           "logical": "シェアコンテンツID",
           "physical": "shareContentsId"
-        }
+        },
+        "type": "BIGINT"
       },
       {
         "name": {
           "logical": "コメント",
           "physical": "comment"
-        }
+        },
+        "type": "VARCHAR"
       },
       {
         "name": {
           "logical": "削除済みフラグ",
           "physical": "deleted"
-        }
+        },
+        "type": "BOOLEAN"
       }
     ]
   },
@@ -84,25 +89,29 @@
         "name": {
           "logical": "評価者メンバーID",
           "physical": "valueFromMemberId"
-        }
+        },
+        "type": "BIGINT"
       },
       {
         "name": {
           "logical": "評価対象者メンバーID",
           "physical": "valueToMemberId"
-        }
+        },
+        "type": "BIGINT"
       },
       {
         "name": {
           "logical": "評価対象ツイートID",
           "physical": "valueToTweetId"
-        }
+        },
+        "type": "BIGINT"
       },
       {
         "name": {
           "logical": "評価スコア",
           "physical": "valueScore"
-        }
+        },
+        "type": "INT"
       }
     ]
   },
@@ -116,25 +125,29 @@
         "name": {
           "logical": "シェアコンテンツID",
           "physical": "_id"
-        }
+        },
+        "type": "BIGINT"
       },
       {
         "name": {
           "logical": "URL",
           "physical": "url"
-        }
+        },
+        "type": "BIGINT"
       },
       {
         "name": {
           "logical": "サムネイル画像URL",
           "physical": "thumbnailUrl"
-        }
+        },
+        "type": "VARCHAR"
       },
       {
         "name": {
           "logical": "コンテンツタイトル",
           "physical": "title"
-        }
+        },
+        "type": "VARCHAR"
       }
     ]
   }

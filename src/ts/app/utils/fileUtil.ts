@@ -20,11 +20,15 @@ class FileUtil {
       if (!dirPath) {
         return;
       }
-      Working.info = JSON.parse(FileUtil.read(`${dirPath}/info.json`));
-      Working.colors = JSON.parse(FileUtil.read(`${dirPath}/colors.json`));
-      Working.tables = JSON.parse(FileUtil.read(`${dirPath}/tables.json`));
-      Working.views = JSON.parse(FileUtil.read(`${dirPath}/views.json`));
-      Working.relations = JSON.parse(FileUtil.read(`${dirPath}/relations.json`));
+
+      // load working files
+      Working.info = FileUtil.readJson(`${dirPath}/info.json`);
+      Working.colors = FileUtil.readJson(`${dirPath}/colors.json`);
+      Working.tables = FileUtil.readJson(`${dirPath}/tables.json`);
+      Working.views = FileUtil.readJson(`${dirPath}/views.json`);
+      Working.relations = FileUtil.readJson(`${dirPath}/relations.json`);
+      Working.types = FileUtil.readJson(`plugins/${Working.info.plugin}/type.json`);
+
       callback();
     });
   }
@@ -35,6 +39,8 @@ class FileUtil {
     Working.tables = [];
     Working.views = [];
     Working.relations = [];
+    Working.types = FileUtil.readJson(`plugins/${Working.info.plugin}/type.json`);
+
     callback();
   }
 
@@ -59,5 +65,9 @@ class FileUtil {
 
   static read (filePath: string) {
     return fs.readFileSync(filePath).toString();
+  }
+
+  static readJson (filePath: string) {
+    return JSON.parse(FileUtil.read(filePath));
   }
 }

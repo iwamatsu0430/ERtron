@@ -5,9 +5,10 @@ class Working {
   static tables: any;
   static views: any;
   static relations: any;
+  static types: any;
 
   static findView (tablePhysicalName: string) {
-    let target = null;
+    let target: any = null;
     Working.views.forEach((view: any) => {
       if (tablePhysicalName === view.name) {
         target = view;
