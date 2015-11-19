@@ -5,6 +5,13 @@
 @template(ViewUtil.load("er-ws-table.html"))
 class ErWsTable extends RiotBase {
 
+  constructor () {
+    super();
+  }
+
+  findPosition (tablePhysicalName: string) {
+
+  }
 }
 
 ErWsTable.register();

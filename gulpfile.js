@@ -49,7 +49,7 @@ gulp.task('bower-css', function() {
 
 gulp.task('bower-fonts', function() {
   return gulp.src(fontFiles)
-    .pipe(gulp.dest(destCSS + '/font'));
+    .pipe(gulp.dest(destCSS + '/fonts'));
 });
 
 // ============================================

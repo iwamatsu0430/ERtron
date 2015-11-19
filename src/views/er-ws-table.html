@@ -1,3 +1,19 @@
 <er-ws-table>
-  Table
+  <div each={Working.tables} style="left: {Working.findView(name.physical).position.x}px; top: {Working.findView(name.physical).position.y}px">
+    <section>
+      <header>
+        <h1>{name.physical}</h1>
+      </header>
+      <main>
+        <ul>
+          <li each={columns}>
+            {name.physical}
+          </li>
+        </ul>
+      </main>
+      <footer>
+
+      </footer>
+    </section>
+  </div>
 </er-ws-table>

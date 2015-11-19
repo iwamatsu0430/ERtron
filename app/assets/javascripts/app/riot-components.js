@@ -123,11 +123,28 @@ ErWsCanvas.register();
 /// <reference path="../../../../bower_components/riot-ts/riot-ts.d.ts" />
 /// <reference path="../base/riot-base.ts" />
 /// <reference path="../utils/viewUtil.ts"/>
+var ErWsColumn = (function (_super) {
+    __extends(ErWsColumn, _super);
+    function ErWsColumn() {
+        _super.apply(this, arguments);
+    }
+    ErWsColumn = __decorate([
+        /// <reference path="../../../../bower_components/riot-ts/riot-ts.d.ts" />
+        template(ViewUtil.load("er-ws-column.html"))
+    ], ErWsColumn);
+    return ErWsColumn;
+})(RiotBase);
+ErWsColumn.register();
+/// <reference path="../../../../bower_components/riot-ts/riot-ts.d.ts" />
+/// <reference path="../base/riot-base.ts" />
+/// <reference path="../utils/viewUtil.ts"/>
 var ErWsTable = (function (_super) {
     __extends(ErWsTable, _super);
     function ErWsTable() {
-        _super.apply(this, arguments);
+        _super.call(this);
     }
+    ErWsTable.prototype.findPosition = function (tablePhysicalName) {
+    };
     ErWsTable = __decorate([
         /// <reference path="../../../../bower_components/riot-ts/riot-ts.d.ts" />
         template(ViewUtil.load("er-ws-table.html"))
@@ -142,7 +159,6 @@ var ErWs = (function (_super) {
     __extends(ErWs, _super);
     function ErWs() {
         _super.call(this);
-        this.isTableView = false;
     }
     ErWs = __decorate([
         /// <reference path="../../../../bower_components/riot-ts/riot-ts.d.ts" />
@@ -151,6 +167,20 @@ var ErWs = (function (_super) {
     return ErWs;
 })(RiotBase);
 ErWs.register();
+var Working = (function () {
+    function Working() {
+    }
+    Working.findView = function (tablePhysicalName) {
+        var target = null;
+        Working.views.forEach(function (view) {
+            if (tablePhysicalName === view.name) {
+                target = view;
+            }
+        });
+        return target;
+    };
+    return Working;
+})();
 /// <reference path="../../d.ts/node/node.d.ts" />
 var fs = require('fs');
 var remote = require('remote');
@@ -210,9 +240,4 @@ var FileUtil = (function () {
         { name: 'ERM XML', extensions: ['erm'] }
     ];
     return FileUtil;
-})();
-var Working = (function () {
-    function Working() {
-    }
-    return Working;
 })();

@@ -1,2 +1,46 @@
+@font-face {
+  font-family: CamptonBold;
+  src: url("../fonts/Campton-BoldDEMO.otf") format("opentype"); }
+
+@font-face {
+  font-family: CamptonLight;
+  src: url("../fonts/Campton-LightDEMO.otf") format("opentype"); }
+
+@font-face {
+  font-family: RictyDiminished;
+  src: url("../fonts/RictyDiminished-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: CamptonBold;
+  src: url("../fonts/Campton-BoldDEMO.otf") format("opentype"); }
+
+@font-face {
+  font-family: CamptonLight;
+  src: url("../fonts/Campton-LightDEMO.otf") format("opentype"); }
+
+@font-face {
+  font-family: RictyDiminished;
+  src: url("../fonts/RictyDiminished-Regular.ttf") format("truetype"); }
+
 .hoge {
   color: black; }
+
+@font-face {
+  font-family: CamptonBold;
+  src: url("../fonts/Campton-BoldDEMO.otf") format("opentype"); }
+
+@font-face {
+  font-family: CamptonLight;
+  src: url("../fonts/Campton-LightDEMO.otf") format("opentype"); }
+
+@font-face {
+  font-family: RictyDiminished;
+  src: url("../fonts/RictyDiminished-Regular.ttf") format("truetype"); }
+
+er-ws-canvas canvas {
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
+er-ws-table > div {
+  position: absolute; }

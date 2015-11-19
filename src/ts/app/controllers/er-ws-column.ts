@@ -2,12 +2,9 @@
 /// <reference path="../base/riot-base.ts" />
 /// <reference path="../utils/viewUtil.ts"/>
 
-@template(ViewUtil.load("er-ws.html"))
-class ErWs extends RiotBase {
+@template(ViewUtil.load("er-ws-column.html"))
+class ErWsColumn extends RiotBase {
 
-  constructor () {
-    super();
-  }
 }
 
-ErWs.register();
+ErWsColumn.register();
