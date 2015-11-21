@@ -34,7 +34,6 @@ class FileUtil {
   }
 
   static createERD (callback: Function) {
-    Working.info = {plugin: 'mysql'};
     Working.colors = [];
     Working.tables = [];
     Working.views = [];

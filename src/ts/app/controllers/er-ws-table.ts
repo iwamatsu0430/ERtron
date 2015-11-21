@@ -9,8 +9,8 @@ class ErWsTable extends RiotBase {
     super();
   }
 
-  findPosition (tablePhysicalName: string) {
-
+  onMouseDownTable (e: Event) {
+    
   }
 }
 

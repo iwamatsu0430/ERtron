@@ -16,7 +16,8 @@ class ErTop extends RiotBase {
 
   createERD (e: Event) {
     e.preventDefault();
-    // TODO choose plugin
+    // TODO(Future) choose plugin
+    Working.info = {plugin: 'mysql'};
     FileUtil.createERD(() => this.route(ErWs));
   }
 

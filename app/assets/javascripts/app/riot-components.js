@@ -1,79 +1,3 @@
-/// <reference path="../../d.ts/node/node.d.ts" />
-var fs = require('fs');
-var remote = require('remote');
-var dialog = remote.require('dialog');
-var FileUtil = (function () {
-    function FileUtil() {
-    }
-    FileUtil.openERD = function (callback) {
-        FileUtil.openDir(Setting.language.string.general.dialog.openERD, function (dirs) {
-            if (!dirs) {
-                return;
-            }
-            var dirPath = dirs[0];
-            if (!dirPath) {
-                return;
-            }
-            Working.info = FileUtil.readJson(dirPath + "/info.json");
-            Working.colors = FileUtil.readJson(dirPath + "/colors.json");
-            Working.tables = FileUtil.readJson(dirPath + "/tables.json");
-            Working.views = FileUtil.readJson(dirPath + "/views.json");
-            Working.relations = FileUtil.readJson(dirPath + "/relations.json");
-            Working.types = FileUtil.readJson("plugins/" + Working.info.plugin + "/type.json");
-            callback();
-        });
-    };
-    FileUtil.createERD = function (callback) {
-        Working.info = { plugin: 'mysql' };
-        Working.colors = [];
-        Working.tables = [];
-        Working.views = [];
-        Working.relations = [];
-        Working.types = FileUtil.readJson("plugins/" + Working.info.plugin + "/type.json");
-        callback();
-    };
-    FileUtil.openDir = function (title, callback) {
-        var options = {
-            title: title,
-            properties: ['openDirectory']
-        };
-        dialog.showOpenDialog(null, options, callback);
-    };
-    FileUtil.open = function (filter, callback) {
-        if (filter === void 0) { filter = FileUtil.filterERD; }
-        if (callback === void 0) { callback = function () { }; }
-        var options = {
-            title: Setting.language.string.general.dialog.openFile,
-            filters: [
-                { name: 'ERM Json', extensions: ['json'] },
-                { name: 'ERM XML', extensions: ['erm'] }
-            ]
-        };
-        dialog.showOpenDialog(null, options, callback);
-    };
-    FileUtil.read = function (filePath) {
-        return fs.readFileSync(filePath).toString();
-    };
-    FileUtil.readJson = function (filePath) {
-        return JSON.parse(FileUtil.read(filePath));
-    };
-    FileUtil.filterERD = [
-        { name: 'ERM Json', extensions: ['json'] },
-        { name: 'ERM XML', extensions: ['erm'] }
-    ];
-    return FileUtil;
-})();
-/// <reference path="../../d.ts/node/node.d.ts" />
-var ViewUtil = (function () {
-    function ViewUtil() {
-    }
-    ViewUtil.load = function (path) {
-        var fs = require("fs");
-        var source = fs.readFileSync("src/views/" + path).toString().replace(/\n/g, "");
-        return source;
-    };
-    return ViewUtil;
-})();
 /// <reference path="../../../../bower_components/riot-ts/riot-ts.d.ts" />
 /// <reference path="../../d.ts/node/node.d.ts" />
 var __extends = (this && this.__extends) || function (d, b) {
@@ -112,19 +36,16 @@ var Setting = (function () {
     Setting.general = JSON.parse(fs.readFileSync('setting.json').toString());
     Setting.language = JSON.parse(fs.readFileSync("language/" + Setting.general.language + ".json").toString());
 })();
-var Working = (function () {
-    function Working() {
+/// <reference path="../../d.ts/node/node.d.ts" />
+var ViewUtil = (function () {
+    function ViewUtil() {
     }
-    Working.findView = function (tablePhysicalName) {
-        var target = null;
-        Working.views.forEach(function (view) {
-            if (tablePhysicalName === view.name) {
-                target = view;
-            }
-        });
-        return target;
+    ViewUtil.load = function (path) {
+        var fs = require("fs");
+        var source = fs.readFileSync("src/views/" + path).toString().replace(/\n/g, "");
+        return source;
     };
-    return Working;
+    return ViewUtil;
 })();
 /// <reference path="../../../../bower_components/riot-ts/riot-ts.d.ts" />
 /// <reference path="../base/riot-base.ts" />
@@ -172,6 +93,7 @@ var ErTop = (function (_super) {
     ErTop.prototype.createERD = function (e) {
         var _this = this;
         e.preventDefault();
+        Working.info = { plugin: 'mysql' };
         FileUtil.createERD(function () { return _this.route(ErWs); });
     };
     ErTop.prototype.openRecentERD = function (e) {
@@ -222,7 +144,7 @@ var ErWsTable = (function (_super) {
     function ErWsTable() {
         _super.call(this);
     }
-    ErWsTable.prototype.findPosition = function (tablePhysicalName) {
+    ErWsTable.prototype.onMouseDownTable = function (e) {
     };
     ErWsTable = __decorate([
         /// <reference path="../../../../bower_components/riot-ts/riot-ts.d.ts" />
@@ -237,7 +159,10 @@ ErWsTable.register();
 var ErWs = (function (_super) {
     __extends(ErWs, _super);
     function ErWs() {
+        var _this = this;
         _super.call(this);
+        this.isMouseDown = false;
+        this.observable.on('onMouseDownTable', function () { return _this.isMouseDown = true; });
     }
     ErWs = __decorate([
         /// <reference path="../../../../bower_components/riot-ts/riot-ts.d.ts" />
@@ -246,3 +171,81 @@ var ErWs = (function (_super) {
     return ErWs;
 })(RiotBase);
 ErWs.register();
+/// <reference path="../../d.ts/node/node.d.ts" />
+var fs = require('fs');
+var remote = require('remote');
+var dialog = remote.require('dialog');
+var FileUtil = (function () {
+    function FileUtil() {
+    }
+    FileUtil.openERD = function (callback) {
+        FileUtil.openDir(Setting.language.string.general.dialog.openERD, function (dirs) {
+            if (!dirs) {
+                return;
+            }
+            var dirPath = dirs[0];
+            if (!dirPath) {
+                return;
+            }
+            Working.info = FileUtil.readJson(dirPath + "/info.json");
+            Working.colors = FileUtil.readJson(dirPath + "/colors.json");
+            Working.tables = FileUtil.readJson(dirPath + "/tables.json");
+            Working.views = FileUtil.readJson(dirPath + "/views.json");
+            Working.relations = FileUtil.readJson(dirPath + "/relations.json");
+            Working.types = FileUtil.readJson("plugins/" + Working.info.plugin + "/type.json");
+            callback();
+        });
+    };
+    FileUtil.createERD = function (callback) {
+        Working.colors = [];
+        Working.tables = [];
+        Working.views = [];
+        Working.relations = [];
+        Working.types = FileUtil.readJson("plugins/" + Working.info.plugin + "/type.json");
+        callback();
+    };
+    FileUtil.openDir = function (title, callback) {
+        var options = {
+            title: title,
+            properties: ['openDirectory']
+        };
+        dialog.showOpenDialog(null, options, callback);
+    };
+    FileUtil.open = function (filter, callback) {
+        if (filter === void 0) { filter = FileUtil.filterERD; }
+        if (callback === void 0) { callback = function () { }; }
+        var options = {
+            title: Setting.language.string.general.dialog.openFile,
+            filters: [
+                { name: 'ERM Json', extensions: ['json'] },
+                { name: 'ERM XML', extensions: ['erm'] }
+            ]
+        };
+        dialog.showOpenDialog(null, options, callback);
+    };
+    FileUtil.read = function (filePath) {
+        return fs.readFileSync(filePath).toString();
+    };
+    FileUtil.readJson = function (filePath) {
+        return JSON.parse(FileUtil.read(filePath));
+    };
+    FileUtil.filterERD = [
+        { name: 'ERM Json', extensions: ['json'] },
+        { name: 'ERM XML', extensions: ['erm'] }
+    ];
+    return FileUtil;
+})();
+var Working = (function () {
+    function Working() {
+    }
+    Working.findView = function (tablePhysicalName) {
+        var target = null;
+        Working.views.forEach(function (view) {
+            if (tablePhysicalName === view.name) {
+                target = view;
+            }
+        });
+        return target;
+    };
+    return Working;
+})();

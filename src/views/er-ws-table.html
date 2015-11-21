@@ -1,7 +1,7 @@
 <er-ws-table>
   <div each={Working.tables} style="left: {Working.findView(name.physical).position.x}px; top: {Working.findView(name.physical).position.y}px">
     <section>
-      <header>
+      <header onmousedown={onMouseDownTable}>
         <h1>{name.physical}</h1>
       </header>
       <main>

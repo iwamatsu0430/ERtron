@@ -5,8 +5,11 @@
 @template(ViewUtil.load("er-ws.html"))
 class ErWs extends RiotBase {
 
+  isMouseDown: boolean = false
+
   constructor () {
     super();
+    this.observable.on('onMouseDownTable', () => this.isMouseDown = true);
   }
 }
 
