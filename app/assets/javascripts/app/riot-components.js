@@ -171,6 +171,20 @@ var ErWs = (function (_super) {
     return ErWs;
 })(RiotBase);
 ErWs.register();
+var Working = (function () {
+    function Working() {
+    }
+    Working.findView = function (tablePhysicalName) {
+        var target = null;
+        Working.views.forEach(function (view) {
+            if (tablePhysicalName === view.name) {
+                target = view;
+            }
+        });
+        return target;
+    };
+    return Working;
+})();
 /// <reference path="../../d.ts/node/node.d.ts" />
 var fs = require('fs');
 var remote = require('remote');
@@ -234,18 +248,4 @@ var FileUtil = (function () {
         { name: 'ERM XML', extensions: ['erm'] }
     ];
     return FileUtil;
-})();
-var Working = (function () {
-    function Working() {
-    }
-    Working.findView = function (tablePhysicalName) {
-        var target = null;
-        Working.views.forEach(function (view) {
-            if (tablePhysicalName === view.name) {
-                target = view;
-            }
-        });
-        return target;
-    };
-    return Working;
 })();
